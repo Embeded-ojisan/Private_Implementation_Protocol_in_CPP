@@ -11,6 +11,7 @@ int main()
 {
     char *serviceType = "http";
     struct addrinfo hints, *res;
+    char send_buf[256];
 
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if(sockfd < 0)
@@ -48,5 +49,24 @@ int main()
     {
         std::cout << "Error connect:" << std::stderror(errno);
         exit(1);
+    }
+
+    sprintf(send_buf, "GET / HTTP/1.0\r\n");
+    write(s, send_buf, strlen(send_buf));
+
+    sprintf(send_buf, "Host:www.siprop.org\r\n\r\n");
+    write(s, send_buf, strlen(send_buf));
+
+    while(1) {
+        char buf[BUF_LEN];
+        int read_size;
+        read_size = read(s, buf, BUF_LEN);
+
+        if (read_size > 0) {
+            write(1, buf, read_size);
+        }
+        else {
+            break;
+        }
     }
 }
