@@ -1,8 +1,16 @@
-#include <iostream>         //標準入出力
 #include <sys/socket.h>     //アドレスドメイン
 #include <sys/types.h>      //ソケットタイプ
 #include <arpa/inet.h>      //バイトオーダの変換に利用
 #include <unistd.h>         //close()に利用
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <sys/param.h>
+#include <unistd.h>
+
+#include <iostream>         //標準入出力
 #include <string>           //string型
 #include <cstring>
 
@@ -49,26 +57,26 @@ int main()
 
     if(
         connect(
-            s,
+            sockfd,
             res->ai_addr,
             res->ai_addrlen
         ) != 0
     )
     {
-        std::cout << "Error host:" << std::endl;
+        std::cout << "Error connect:" << std::endl;
         exit(1);
     }
 
     sprintf(send_buf, "GET / HTTP/1.0\r\n");
-    write(s, send_buf, strlen(send_buf));
+    write(sockfd, send_buf, strlen(send_buf));
 
     sprintf(send_buf, "Host:www.siprop.org\r\n\r\n");
-    write(s, send_buf, strlen(send_buf));
+    write(sockfd, send_buf, strlen(send_buf));
 
     while(1) {
         char buf[256];
         int read_size;
-        read_size = read(s, buf, 256);
+        read_size = read(sockfd, buf, 256);
 
         if (read_size > 0) {
             write(1, buf, read_size);
