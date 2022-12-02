@@ -4,19 +4,27 @@
 #include <arpa/inet.h>      //バイトオーダの変換に利用
 #include <unistd.h>         //close()に利用
 #include <string>           //string型
+#include <cstring>
 
 //https://www.siprop.org/ja/2.0/へ通信
 
 int main()
 {
     char *serviceType = "http";
-    struct addrinfo hints, *res;
+//    struct addrinfo hints;
+//    struct sockaddr_in *res;
     char send_buf[256];
+    int s;
+
+    struct addrinfo hints;
+    struct addrinfo *res;
+    struct in_addr addr;
+    int err;
 
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if(sockfd < 0)
     {
-        std::cout << "Error socket:" << std::stderror(errno);
+        std::cout << "Error host:" << std::endl;
         exit(1);
     }
 
@@ -35,7 +43,7 @@ int main()
         ) != 0
     )
     {
-        std::cout << "Error host:" << std::stderror(errno);
+        std::cout << "Error host:" << std::endl;
         exit(1);
     }
 
@@ -47,7 +55,7 @@ int main()
         ) != 0
     )
     {
-        std::cout << "Error connect:" << std::stderror(errno);
+        std::cout << "Error host:" << std::endl;
         exit(1);
     }
 
@@ -58,9 +66,9 @@ int main()
     write(s, send_buf, strlen(send_buf));
 
     while(1) {
-        char buf[BUF_LEN];
+        char buf[256];
         int read_size;
-        read_size = read(s, buf, BUF_LEN);
+        read_size = read(s, buf, 256);
 
         if (read_size > 0) {
             write(1, buf, read_size);
