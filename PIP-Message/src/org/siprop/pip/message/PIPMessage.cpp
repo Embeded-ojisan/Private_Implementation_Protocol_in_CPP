@@ -15,3 +15,5 @@ private:
 public:
 
 }
+
+std::string PIPMessage.DEFAULT_ENCODING = "UTF-8";
