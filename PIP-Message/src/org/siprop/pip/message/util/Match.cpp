@@ -2,5 +2,5 @@
 class Match
 {
 public:
-    virtual bool match(std::string searchString);
+    virtual bool match(std::string searchString) = 0;
 }
