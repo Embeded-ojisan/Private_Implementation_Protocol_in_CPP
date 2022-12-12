@@ -34,5 +34,15 @@ private:
 
     static int              indentation;
     static std::string      stringRepresentation;
+
+public:
+    void setMatcher(Match matchExpression) {
+        if(nullptr == matchExpression)
+        {
+            throw Invalid_argument("null arg!");
+        }
+
+        this.matchExpression = matchExpression;
+    }
     
 }
