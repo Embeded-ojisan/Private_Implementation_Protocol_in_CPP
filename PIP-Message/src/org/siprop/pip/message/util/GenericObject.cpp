@@ -70,7 +70,58 @@ public:
 		}
 		return false;
 	}
+
+	public static Object makeClone(Object obj) {
+		if (obj == null)
+			throw new NullPointerException("null obj!");
+		Class c = obj.getClass();
+		Object clone_obj = obj;
+		if (immutableClasses.contains (c))
+			return obj;
+		else if (c.isArray ()) {
+			Class ec = c.getComponentType();
+			if (! ec.isPrimitive())
+				clone_obj = ((Object []) obj).clone();
+			else {
+				if (ec == Character.TYPE)
+					clone_obj = ((char []) obj).clone();
+				else if (ec == Boolean.TYPE)
+					clone_obj = ((boolean []) obj).clone();
+				if (ec == Byte.TYPE)
+					clone_obj = ((byte []) obj).clone();
+				else if (ec == Short.TYPE)
+					clone_obj = ((short []) obj).clone();
+				else if (ec == Integer.TYPE)
+					clone_obj = ((int []) obj).clone();
+				else if (ec == Long.TYPE)
+					clone_obj = ((long []) obj).clone();
+				else if (ec == Float.TYPE)
+					clone_obj = ((float []) obj).clone();
+				else if (ec == Double.TYPE)
+					clone_obj = ((double []) obj).clone();
+			}
+		} else if (GenericObject.class.isAssignableFrom (c))
+			clone_obj = ((GenericObject) obj).clone();
+		else if (GenericObjectList.class.isAssignableFrom (c))
+			clone_obj = ((GenericObjectList) obj).clone();
+		else if (Cloneable.class.isAssignableFrom (c)) {
+			// If a clone method exists for the object, then
+			// invoke it
+			try {
+				Method meth = c.getMethod("clone", (Class[]) null);
+				clone_obj = meth.invoke(obj,(Object[]) null);
+			} catch (SecurityException ex) {
+			} catch (IllegalArgumentException ex) {
+				InternalErrorHandler.handleException(ex);
+			} catch (IllegalAccessException ex) {
+			} catch (InvocationTargetException ex) {
+			} catch (NoSuchMethodException ex) {
+			}
+		}
+		return clone_obj;
+	}
 */
 
+    
 
 }
