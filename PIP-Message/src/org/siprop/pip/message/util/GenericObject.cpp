@@ -51,4 +51,26 @@ public:
     {
         return this->matchExpression;
     }
+
+/* C++にはClassクラスやforNameが存在しないため実装せず
+	public static Class getClassFromName(String className) {
+		try {
+			return Class.forName(className);
+		} catch (Exception ex) {
+			InternalErrorHandler.handleException(ex);
+			return null;
+		}
+	}
+
+	public static boolean isMySubclass(Class other) {
+		try {
+			return GenericObject.class.isAssignableFrom(other);
+		} catch (Exception ex) {
+			InternalErrorHandler.handleException(ex);
+		}
+		return false;
+	}
+*/
+
+
 }
