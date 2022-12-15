@@ -43,6 +43,12 @@ private:
 		stringRepresentation = "";
 	}
 
+	std::string getIndentation()
+	{
+		char* chars[indentation] = {' '};
+		return std::string(chars);
+	}
+
 public:
     void setMatcher(Match matchExpression)
     {
