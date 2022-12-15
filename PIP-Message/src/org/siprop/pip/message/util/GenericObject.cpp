@@ -36,6 +36,13 @@ private:
     static std::string      stringRepresentation;
     static Match            matchExpression;
 
+	// コンストラクタ
+	GenericObject()
+	{
+		indentation = 0;
+		stringRepresentation = "";
+	}
+
 public:
     void setMatcher(Match matchExpression)
     {
