@@ -120,11 +120,81 @@ public:
 		}
 		return clone_obj;
 	}
+
+	public void merge(Object mergeObject) {
+		if (!mergeObject.getClass().equals(this.getClass()))
+			throw new IllegalArgumentException("Bad override object");
+		// Base case.
+		if (mergeObject == null)
+			return;
+		Class myclass = this.getClass();
+		while (true) {
+			Field[] fields = myclass.getDeclaredFields();
+			for (int i = 0; i < fields.length; i++) {
+				Field f = fields[i];
+				int modifier = f.getModifiers();
+				if (Modifier.isPrivate(modifier)) {
+					continue;
+				} else if (Modifier.isStatic(modifier)) {
+					continue;
+				} else if (Modifier.isInterface(modifier)) {
+					continue;
+				}
+				Class fieldType = f.getType();
+				String fieldName = f.getName();
+				String fname = fieldType.toString();
+				try {
+					// Primitive fields are printed with type: value
+					if (fieldType.isPrimitive()) {
+						if (fname.compareTo("int") == 0) {
+							int intfield = f.getInt(mergeObject);
+							f.setInt(this, intfield);
+						} else if (fname.compareTo("short") == 0) {
+							short shortField = f.getShort(mergeObject);
+							f.setShort(this, shortField);
+						} else if (fname.compareTo("char") == 0) {
+							char charField = f.getChar(mergeObject);
+							f.setChar(this, charField);
+						} else if (fname.compareTo("long") == 0) {
+							long longField = f.getLong(mergeObject);
+							f.setLong(this, longField);
+						} else if (fname.compareTo("boolean") == 0) {
+							boolean booleanField = f.getBoolean(mergeObject);
+							f.setBoolean(this, booleanField);
+						} else if (fname.compareTo("double") == 0) {
+							double doubleField = f.getDouble(mergeObject);
+							f.setDouble(this, doubleField);
+						} else if (fname.compareTo("float") == 0) {
+							float floatField = f.getFloat(mergeObject);
+							f.setFloat(this, floatField);
+						}
+					} else {
+						Object obj = f.get(this);
+						Object mobj = f.get(mergeObject);
+						if (mobj == null)
+							continue;
+						if (obj == null) {
+							f.set(this, mobj);
+							continue;
+						}
+						if (obj instanceof GenericObject) {
+							GenericObject gobj = (GenericObject) obj;
+							gobj.merge(mobj);
+						} else {
+							f.set(this, mobj);
+						}
+					}
+				} catch (IllegalAccessException ex1) {
+					ex1.printStackTrace();
+					continue; // we are accessing a private field...
+				}
+			}
+			myclass = myclass.getSuperclass();
+			if (myclass.equals(GenericObject.class))
+				break;
+		}
+	}
 */
 
-    void merge(GenericObject mergeObject)
-	{
-		
-	}
 
 }
