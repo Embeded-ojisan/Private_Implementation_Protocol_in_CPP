@@ -122,6 +122,9 @@ public:
 	}
 */
 
-    
+    void merge(GenericObject mergeObject)
+	{
+		
+	}
 
 }
