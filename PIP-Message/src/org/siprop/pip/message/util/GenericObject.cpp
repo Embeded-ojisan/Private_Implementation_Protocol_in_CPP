@@ -1,4 +1,8 @@
+#include <GenericObject.hpp>
+
 #include <unordered_set>
+
+
 
 // コンストラクタ
 GenericObject::GenericObject()
