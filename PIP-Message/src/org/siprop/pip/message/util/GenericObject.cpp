@@ -1,69 +1,32 @@
 #include <unordered_set>
 
-class GenericObject
+// コンストラクタ
+GenericObject::GenericObject()
 {
-private:
-    static std::string      SEMICOLON        = Separators.SEMICOLON;
-    static std::string      COLON            = Separators.COLON;
-    static std::string      COMMA            = Separators.COMMA;
-    static std::string      SLASH            = Separators.SLASH;
-    static std::string      SP               = Separators.SP;
-    static std::string      EQUALS           = Separators.EQUALS;
-    static std::string      STAR             = Separators.STAR;
-    static std::string      NEWLINE          = Separators.NEWLINE;
-    static std::string      RETURN           = Separators.RETURN;
-    static std::string      LESS_THAN        = Separators.LESS_THAN;
-    static std::string      GREATER_THAN     = Separators.GREATER_THAN;
-    static std::string      AT               = Separators.AT;
-    static std::string      DOT              = Separators.DOT;
-    static std::string      QUESTION         = Separators.QUESTION;
-    static std::string      POUND            = Separators.POUND;
-    static std::string      AND              = Separators.AND;
-    static std::string      LPAREN           = Separators.LPAREN;
-    static std::string      RPAREN           = Separators.RPAREN;
-    static std::string      DOUBLE_QUOTE     = Separators.DOUBLE_QUOTE;
-    static std::string      QUOTE            = Separators.QUOTE;
-    static std::string      HT               = Separators.HT;
-    static std::string      PERCENT          = Separators.PERCENT;
+	indentation = 0;
+	stringRepresentation = "";
+}
 
-    static std::unordered_set<std::string> immutableClasses{
-        "String", "Character",
-		"Boolean", "Byte", "Short", "Integer", "Long",
-		"Float", "Double"
-    };
+std::string GenericObject::getIndentation()
+{
+	char* chars[indentation] = {' '};
+	return std::string(chars);
+}
 
-    static int              indentation;
-    static std::string      stringRepresentation;
-    static Match            matchExpression;
-
-	// コンストラクタ
-	GenericObject()
-	{
-		indentation = 0;
-		stringRepresentation = "";
-	}
-
-	std::string getIndentation()
-	{
-		char* chars[indentation] = {' '};
-		return std::string(chars);
-	}
-
-public:
-    void setMatcher(Match matchExpression)
+void GenericObject::setMatcher(Match matchExpression)
+{
+    if(nullptr == matchExpression)
     {
-        if(nullptr == matchExpression)
-        {
-            throw Invalid_argument("null arg!");
-        }
-
-        this->matchExpression = matchExpression;
+        throw Invalid_argument("null arg!");
     }
+
+    this->matchExpression = matchExpression;
+}
     
-    Match getMatcher()
-    {
-        return this->matchExpression;
-    }
+Match GenericObject::getMatcher()
+{
+    return this->matchExpression;
+}
 
 /* C++にはClassクラスやforNameが存在しないため実装せず
 	public static Class getClassFromName(String className) {
@@ -208,6 +171,3 @@ public:
 		}
 	}
 */
-
-
-}
