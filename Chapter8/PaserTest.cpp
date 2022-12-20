@@ -1,3 +1,4 @@
+#include <PIPMessage>
 
 
 class PaserTest
