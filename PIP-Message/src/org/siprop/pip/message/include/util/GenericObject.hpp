@@ -45,4 +45,6 @@ public:
     void setMatcher(Match matchExpression);
     
     Match getMatcher();
+
+    void sprint(int);
 }

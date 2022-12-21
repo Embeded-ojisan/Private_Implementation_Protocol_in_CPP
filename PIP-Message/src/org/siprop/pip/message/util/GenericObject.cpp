@@ -11,12 +11,6 @@ GenericObject::GenericObject()
 	stringRepresentation = "";
 }
 
-std::string GenericObject::getIndentation()
-{
-	char* chars[indentation] = {' '};
-	return std::string(chars);
-}
-
 void GenericObject::setMatcher(Match matchExpression)
 {
     if(nullptr == matchExpression)
@@ -30,6 +24,12 @@ void GenericObject::setMatcher(Match matchExpression)
 Match GenericObject::getMatcher()
 {
     return this->matchExpression;
+}
+
+std::string GenericObject::getIndentation()
+{
+	char* chars[indentation] = {' '};
+	return std::string(chars);
 }
 
 /* C++にはClassクラスやforNameが存在しないため実装せず
@@ -175,3 +175,14 @@ Match GenericObject::getMatcher()
 		}
 	}
 */
+
+// Object型が存在しないため、void*で代用
+void GenericObject::sprint(Object)
+{
+	;
+}
+
+void GenericObject::sprint(int intField)
+{
+	to_string(intField);
+}
