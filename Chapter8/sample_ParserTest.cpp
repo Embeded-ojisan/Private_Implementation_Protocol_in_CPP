@@ -6,25 +6,47 @@
 
 #include "parser/StringMsgParser.hpp"
 
-/*
-class PaserTest
+#include <string>
+#include <fstream>
+#include <iostream>
+#include <cstddef>
+#include <cstring>
+#include <vector>
+
+using namespace std::literals;
+
+class ParserTest
 {
 public:
-    loadText(std::string fileName)
+    std::vector<char> loadText(std::string);
+};
+
+std::vector<char> ParserTest::loadText(std::string fileName)
+{
+    std::ifstream in(fileName);
+    std::vector<char> buf;
+    char ch;
+    int index = 0;
+
+    if(!in.is_open())
     {
-        std::ifsteram in(fileName);
-        char buf[1024];
-
-
-
+        throw std::exception();
     }
+
+    while(!in.eof())
+    {
+        in.get(ch);
+        buf.push_back(ch);
+    }
+
+    return buf;
 }
-*/
 
 int main(int argc, char *argv[])
 {
-/*
-    char* message[];
+
+    std::vector<char> message;
+    ParserTest Parser;
 
     try
     {
@@ -33,18 +55,27 @@ int main(int argc, char *argv[])
             std::cout << "ERR: 読み込むファイル名を指定してください" << std::endl;
             return -1;
         }
-
-        message = this.loadText(args[0]);
+        
+        message = Parser.loadText(std::string(argv[1]));
         std::cout << "メッセージ読み込み成功" << std::endl;
     }
-    catch(IOException& ex)
+    catch(std::exception& ex)
     {
         std::cerr 
             << "ERR: ファイル読み込み中にエラーが発生しました" 
             << std::endl;
-        return;
+        return -1;
     }
-
+/*
+    catch(std::exception& ex)
+    {
+        std::cerr 
+            << "ERR: ファイル読み込み中にエラーが発生しました" 
+            << std::endl;
+        return -1;
+    }
+*/
+/*
     try
     {
         PIPMessage pipMessage;
