@@ -41,6 +41,8 @@ private:
 
 	std::string getIndentation();
 
+    void sprint(std::string);
+
 public:
     void setMatcher(Match matchExpression);
     

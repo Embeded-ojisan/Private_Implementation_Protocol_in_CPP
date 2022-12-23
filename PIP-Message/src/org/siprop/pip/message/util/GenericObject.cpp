@@ -1,4 +1,4 @@
-#include "util/include/GenericObject.hpp"
+#include "util/GenericObject.hpp"
 
 #include <unordered_set>
 
@@ -175,6 +175,14 @@ std::string GenericObject::getIndentation()
 		}
 	}
 */
+
+void sprint(std::string a)
+{
+	if(a == nullptr)
+	{
+		stringRepresentation = getIndentation();
+	}
+}
 
 // Object型が存在しないため、void*で代用
 void GenericObject::sprint(Object)
