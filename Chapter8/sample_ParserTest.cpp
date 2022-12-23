@@ -1,6 +1,12 @@
-#include <PIPMessage>
+#include "macro.hpp"
 
+#include "PIPMessage.hpp"
+#include "PIPRequest.hpp"
+#include "PIPResponse.hpp"
 
+#include "parser/StringMsgParser.hpp"
+
+/*
 class PaserTest
 {
 public:
@@ -13,9 +19,11 @@ public:
 
     }
 }
+*/
 
 int main(int argc, char *argv[])
 {
+/*
     char* message[];
 
     try
@@ -51,4 +59,5 @@ int main(int argc, char *argv[])
     {
         std::cerr << e.what() << '\n';
     }
+*/
 }
