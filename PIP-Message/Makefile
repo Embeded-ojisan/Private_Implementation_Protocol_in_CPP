@@ -34,15 +34,6 @@ LIBDIR  =\
 LIBS    = 
 
 # オブジェクトファイル生成→ターゲットファイル生成
-sample%:
-	-rm -Rf $@ $@.o
-	$(eval SRCS := $(addprefix ./sample/,$@.cpp))
-	$(eval OBJS := $(SRCS:.cpp=.o))
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS) -o $(BUILD)/sample/$@.o
-	$(CC) $(BUILD)/sample/$@.o -o $(BUILD)/$@ $^ $(LIBDIR) $(LIBS)
-
-clean-sample:
-	rm -Rf build/sample_* build/sample/sample_*.o
 
 # 以下残骸 ############################################
 # ターゲットファイル生成
