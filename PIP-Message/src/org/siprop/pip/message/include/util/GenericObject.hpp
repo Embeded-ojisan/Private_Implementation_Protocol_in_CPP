@@ -1,3 +1,6 @@
+#ifndef GENERICOBJECT_H
+#define GENERICOBJECT_H
+
 #include <unordered_set>
 
 class GenericObject
@@ -50,3 +53,5 @@ public:
 
     void sprint(int);
 }
+
+#endif // GENERICOBJECT_H
