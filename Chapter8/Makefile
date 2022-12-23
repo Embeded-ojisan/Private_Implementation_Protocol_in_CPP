@@ -11,6 +11,9 @@ SAMPLE	= .
 
 # 追加するライブラリファイル
 LIBS    = 
+
+# ライブラリファイルのあるディレクトリパス
+LIBDIR  =
 ###########################################
 # パーサの基底ディレクトリ
 PARSERDIR = ../PIP-Message
@@ -19,12 +22,17 @@ PARSERDIR = ../PIP-Message
 BUILD	=\
 	$(PARSERDIR)/build
 
-# ライブラリファイルのあるディレクトリパス
-LIBDIR  =
-###########################################
 # ソースファイルの基底ディレクトリ
 SRCDIR = $(PARSERDIR)/src/org/siprop/pip/message
-
+###########################################
+BUILD_ALL	=\
+	$(BUILD)\
+	$(BUILD)/sample\
+	$(BUILD)//src/org/siprop/pip/message/address\
+	$(BUILD)//src/org/siprop/pip/message/header\
+	$(BUILD)//src/org/siprop/pip/message/parser\
+	$(BUILD)//src/org/siprop/pip/message/util
+###########################################
 # インクルードファイルのあるディレクトリパス
 INCDIR  =\
 	$(SRCDIR)/include
@@ -38,7 +46,13 @@ sample%:
 	$(CC) $(BUILD)/sample/$@.o -o $@.exe $^ $(LIBDIR) $(LIBS)
 
 clean-sample:
-	rm -Rf $(PARSERDIR)/sample/sample_*.o
+	rm -Rf $(PARSERDIR)/sample/sample*.o sample*.exe
+
+clean-all:
+	rm -Rf\
+		sample*.exe\
+		$(BUILD_ALL)/*.exe\
+		$(BUILD_ALL)/*.o
 
 # 以下残骸 ############################################
 # ターゲットファイル生成
