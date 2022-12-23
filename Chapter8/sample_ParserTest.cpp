@@ -66,15 +66,7 @@ int main(int argc, char *argv[])
             << std::endl;
         return -1;
     }
-/*
-    catch(std::exception& ex)
-    {
-        std::cerr 
-            << "ERR: ファイル読み込み中にエラーが発生しました" 
-            << std::endl;
-        return -1;
-    }
-*/
+    
 /*
     try
     {
