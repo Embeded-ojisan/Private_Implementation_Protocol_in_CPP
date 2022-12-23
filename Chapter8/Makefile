@@ -25,14 +25,6 @@ BUILD	=\
 # ソースファイルの基底ディレクトリ
 SRCDIR = $(PARSERDIR)/src/org/siprop/pip/message
 ###########################################
-BUILD_ALL	=\
-	$(BUILD)\
-	$(BUILD)/sample\
-	$(BUILD)//src/org/siprop/pip/message/address\
-	$(BUILD)//src/org/siprop/pip/message/header\
-	$(BUILD)//src/org/siprop/pip/message/parser\
-	$(BUILD)//src/org/siprop/pip/message/util
-###########################################
 # インクルードファイルのあるディレクトリパス
 INCDIR  =\
 	$(SRCDIR)/include
@@ -50,10 +42,8 @@ clean-sample:
 
 clean-all:
 	rm -Rf\
-		sample*.exe\
-		$(BUILD_ALL)/*.exe\
-		$(BUILD_ALL)/*.o
-
+		sample*.exe
+		
 # 以下残骸 ############################################
 # ターゲットファイル生成
 $(TARGET): $(OBJS)
