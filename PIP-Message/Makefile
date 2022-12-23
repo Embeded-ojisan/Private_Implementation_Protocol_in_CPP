@@ -29,7 +29,6 @@ BUILD	=\
 
 # ライブラリファイルのあるディレクトリパス
 LIBDIR  =\
-	.$(BUILD)
 
 # 追加するライブラリファイル
 LIBS    = 
@@ -37,7 +36,7 @@ LIBS    =
 # オブジェクトファイル生成→ターゲットファイル生成
 sample%:
 	-rm -Rf $@ $@.o
-	$(eval SRCS := $(addprefix $(SRCDIR)/sample/,$@.cpp))
+	$(eval SRCS := $(addprefix ./sample/,$@.cpp))
 	$(eval OBJS := $(SRCS:.cpp=.o))
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS) -o $(BUILD)/sample/$@.o
 	$(CC) $(BUILD)/sample/$@.o -o $(BUILD)/$@ $^ $(LIBDIR) $(LIBS)
