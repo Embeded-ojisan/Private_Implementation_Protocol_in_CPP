@@ -6,6 +6,9 @@
 // JavaのObject型を模擬
 using Object = void*;
 
+// JavaのParseException型を模擬
+using ParseException = std::exception;
+
 // Javaのインターフェースを模擬
 // 参考は以下
 // https://moewe-net.com/c-cpp/cpp-interface

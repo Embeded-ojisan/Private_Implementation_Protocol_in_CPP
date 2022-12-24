@@ -13,6 +13,7 @@ private:
     std::list headers;
 
 public:
+    PIPMessage() {};
 
 }
 

@@ -67,20 +67,17 @@ int main(int argc, char *argv[])
         return -1;
     }
     
-/*
     try
     {
-        PIPMessage pipMessage;
-        StringMsgParser parse;
-        pipMesage = parser.PIMessage(message);
+        PIPMessage *pipMessage;
+        StringMsgParser parser;
+        pipMessage = parser.PIPMessage(message);
         std::cout
             << "メッセージパース成功："
-            << pipMessage.getClass().getName();
             << std::endl;
     }
     catch(const ParserException& ex)
     {
         std::cerr << e.what() << '\n';
     }
-*/
 }
