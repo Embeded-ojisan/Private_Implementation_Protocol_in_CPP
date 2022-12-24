@@ -7,33 +7,33 @@
 // コンストラクタ
 GenericObject::GenericObject()
 {
-	Separators Separators:
+	Separators Separator:
 
 	indentation = 0;
 	stringRepresentation = "";
 
-	this->SEMICOLON			= Separators.SEMICOLON;
-	this->COLON				= Separators.COLON;
-	this->COMMA				= Separators.COMMA;
-	this->SLASH				= Separators.SLASH;
-	this->SP				= Separators.SP;
-	this->EQUALS			= Separators.EQUALS;
-	this->STAR				= Separators.STAR;
-	this->NEWLINE			= Separators.NEWLINE;
-	this->RETURN			= Separators.RETURN;
-	this->LESS_THAN			= Separators.LESS_THAN;
-	this->GREATER_THAN		= Separators.GREATER_THAN;
-	this->AT				= Separators.AT;
-	this->DOT				= Separators.DOT;
-	this->QUESTION			= Separators.QUESTION;
-	this->POUND				= Separators.POUND;
-	this->AND				= Separators.AND;
-	this->LPAREN			= Separators.LPAREN;
-	this->RPAREN			= Separators.RPAREN;
-	this->DOUBLE_QUOTE		= Separators.DOUBLE_QUOTE;
-	this->QUOTE				= Separators.QUOTE;
-	this->HT				= Separators.HT;
-	this->PERCENT			= Separators.PERCENT;
+	this->SEMICOLON			= Separator.SEMICOLON;
+	this->COLON				= Separator.COLON;
+	this->COMMA				= Separator.COMMA;
+	this->SLASH				= Separator.SLASH;
+	this->SP				= Separator.SP;
+	this->EQUALS			= Separator.EQUALS;
+	this->STAR				= Separator.STAR;
+	this->NEWLINE			= Separator.NEWLINE;
+	this->RETURN			= Separator.RETURN;
+	this->LESS_THAN			= Separator.LESS_THAN;
+	this->GREATER_THAN		= Separator.GREATER_THAN;
+	this->AT				= Separator.AT;
+	this->DOT				= Separator.DOT;
+	this->QUESTION			= Separator.QUESTION;
+	this->POUND				= Separator.POUND;
+	this->AND				= Separator.AND;
+	this->LPAREN			= Separator.LPAREN;
+	this->RPAREN			= Separator.RPAREN;
+	this->DOUBLE_QUOTE		= Separator.DOUBLE_QUOTE;
+	this->QUOTE				= Separator.QUOTE;
+	this->HT				= Separator.HT;
+	this->PERCENT			= Separator.PERCENT;
 
 	this->immutableClasses = {
         "String", "Character",
