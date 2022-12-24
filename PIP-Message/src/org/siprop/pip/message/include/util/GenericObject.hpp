@@ -1,39 +1,41 @@
 #ifndef GENERICOBJECT_H
 #define GENERICOBJECT_H
 
+#include "macro.hpp"
+
+#include "util/Separators.hpp"
+#include "util/Match.hpp"
+
 #include <unordered_set>
+#include <string>
 
 class GenericObject
 {
 private:
-    static std::string      SEMICOLON        = Separators.SEMICOLON;
-    static std::string      COLON            = Separators.COLON;
-    static std::string      COMMA            = Separators.COMMA;
-    static std::string      SLASH            = Separators.SLASH;
-    static std::string      SP               = Separators.SP;
-    static std::string      EQUALS           = Separators.EQUALS;
-    static std::string      STAR             = Separators.STAR;
-    static std::string      NEWLINE          = Separators.NEWLINE;
-    static std::string      RETURN           = Separators.RETURN;
-    static std::string      LESS_THAN        = Separators.LESS_THAN;
-    static std::string      GREATER_THAN     = Separators.GREATER_THAN;
-    static std::string      AT               = Separators.AT;
-    static std::string      DOT              = Separators.DOT;
-    static std::string      QUESTION         = Separators.QUESTION;
-    static std::string      POUND            = Separators.POUND;
-    static std::string      AND              = Separators.AND;
-    static std::string      LPAREN           = Separators.LPAREN;
-    static std::string      RPAREN           = Separators.RPAREN;
-    static std::string      DOUBLE_QUOTE     = Separators.DOUBLE_QUOTE;
-    static std::string      QUOTE            = Separators.QUOTE;
-    static std::string      HT               = Separators.HT;
-    static std::string      PERCENT          = Separators.PERCENT;
+    static std::string      SEMICOLON;
+    static std::string      COLON;
+    static std::string      COMMA;
+    static std::string      SLASH;
+    static std::string      SP;
+    static std::string      EQUALS;
+    static std::string      STAR;
+    static std::string      NEWLINE;
+    static std::string      RETURN;
+    static std::string      LESS_THAN;
+    static std::string      GREATER_THAN;
+    static std::string      AT;
+    static std::string      DOT;
+    static std::string      QUESTION;
+    static std::string      POUND;
+    static std::string      AND;
+    static std::string      LPAREN;
+    static std::string      RPAREN;
+    static std::string      DOUBLE_QUOTE;
+    static std::string      QUOTE;
+    static std::string      HT;
+    static std::string      PERCENT;
 
-    static std::unordered_set<std::string> immutableClasses{
-        "String", "Character",
-		"Boolean", "Byte", "Short", "Integer", "Long",
-		"Float", "Double"
-    };
+    static std::unordered_set<std::string> immutableClasses;
 
     static int              indentation;
     static std::string      stringRepresentation;
@@ -52,6 +54,6 @@ public:
     Match getMatcher();
 
     void sprint(int);
-}
+};
 
 #endif // GENERICOBJECT_H

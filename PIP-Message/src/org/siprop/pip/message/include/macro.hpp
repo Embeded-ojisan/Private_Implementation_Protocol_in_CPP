@@ -1,6 +1,8 @@
 #ifndef MACRO_H
 #define MACRO_H
 
+#include <string>
+
 // JavaのObject型を模擬
 using Object = void*;
 
