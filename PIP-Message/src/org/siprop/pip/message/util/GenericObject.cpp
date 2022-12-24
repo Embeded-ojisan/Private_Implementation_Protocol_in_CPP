@@ -215,7 +215,6 @@ void sprint(std::string a)
 	}
 }
 
-// Object型が存在しないため、void*で代用
 void GenericObject::sprint(Object)
 {
 	;
