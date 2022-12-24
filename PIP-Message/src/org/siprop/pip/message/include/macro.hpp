@@ -2,12 +2,16 @@
 #define MACRO_H
 
 #include <string>
+#include <iostream>
 
 // JavaのObject型を模擬
 using Object = void*;
 
+// JavaのClass型を模擬
+using Class = void*;
+
 // JavaのParseException型を模擬
-using ParseException = std::exception;
+using ParserException = std::exception;
 
 // Javaのインターフェースを模擬
 // 参考は以下

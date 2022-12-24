@@ -1,0 +1,6 @@
+#ifndef CONTENTLENGTHHEADER_H
+#define CONTENTLENGTHHEADER_H
+
+#include "macro.hpp"
+
+#endif // CONTENTLENGTHHEADER_H

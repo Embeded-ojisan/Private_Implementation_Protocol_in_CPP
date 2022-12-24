@@ -71,13 +71,13 @@ int main(int argc, char *argv[])
     {
         PIPMessage *pipMessage;
         StringMsgParser parser;
-        pipMessage = parser.PIPMessage(message);
+        pipMessage = parser.parsePIPMessage(message);
         std::cout
             << "メッセージパース成功："
             << std::endl;
     }
     catch(const ParserException& ex)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << ex.what() << '\n';
     }
 }
