@@ -1,3 +1,6 @@
+#ifndef SEPARATORS_H
+#define SEPARATORS_H
+
 #include "macro.hpp"
 
 class Separators final
@@ -26,3 +29,5 @@ public:
     static constexpr std::string_view HT                = "\t";
     static constexpr std::string_view PERCENT           = "%";
 };
+
+#endif // SEPARATORS_H
