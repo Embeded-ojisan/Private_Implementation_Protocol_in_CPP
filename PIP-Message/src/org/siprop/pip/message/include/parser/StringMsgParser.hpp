@@ -46,7 +46,7 @@ private:
 
     PIPMessage* processFirstLine(std::string);
 
-    void processHeader(std::string, PIPMessage message);
+    void processHeader(std::string, PIPMessage* message);
 
 };
 

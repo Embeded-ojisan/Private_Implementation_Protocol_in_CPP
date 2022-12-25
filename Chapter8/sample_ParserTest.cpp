@@ -4,7 +4,10 @@
 #include "PIPRequest.hpp"
 #include "PIPResponse.hpp"
 
-#include "parser/StringMsgParser.hpp"
+#include "Address.hpp"
+#include "Header.hpp"
+#include "Parser.hpp"
+#include "Util.hpp"
 
 #include <string>
 #include <fstream>

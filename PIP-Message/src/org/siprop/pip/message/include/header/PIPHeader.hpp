@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class PIPHeader
+{
+public:
+
+private:
+};
+
 #endif // PIPHEADER_H

@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class URI
+{
+public:
+
+private:
+};
+
 #endif // URI_H

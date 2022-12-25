@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class Host
+{
+public:
+
+private:
+};
+
 #endif // HOST_H

@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class PipUri
+{
+public:
+
+private:
+};
+
 #endif // PIPURI_H

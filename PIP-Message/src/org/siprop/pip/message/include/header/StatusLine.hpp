@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class StatusLine
+{
+public:
+
+private:
+};
+
 #endif // STATUSLINE_H

@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class RequestLine
+{
+public:
+
+private:
+};
+
 #endif // REQUESTLINE_H

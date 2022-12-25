@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class Address
+{
+public:
+
+private:
+};
+
 #endif // ADDRESS_H

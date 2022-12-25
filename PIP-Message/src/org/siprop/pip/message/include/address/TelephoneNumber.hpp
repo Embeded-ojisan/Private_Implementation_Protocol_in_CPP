@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class TelephoneNumber
+{
+public:
+
+private:
+};
+
 #endif // TELEPHONENUMBER_H
