@@ -12,6 +12,7 @@
 #include "header/ContentLengthHeader.hpp"
 
 #include <list>
+#include <vector>
 
 
 class PIPMessage : public Cloneable , public MessageObject
@@ -47,7 +48,7 @@ private:
     // Payload
     std::string                         messageContent;
     std::vector<std::string>            messageContentBytes;
-    Object                              messageContentObject
+    Object                              messageContentObject;
 
 	// Table of headers indexed by name.
     std::unordered_set<std::string>     nameTable;

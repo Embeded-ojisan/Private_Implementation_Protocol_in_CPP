@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class ContentLengthHeader
+{
+public:
+
+private:
+};
+
 #endif // CONTENTLENGTHHEADER_H

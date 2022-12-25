@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class CSeqHeader
+{
+public:
+
+private:
+};
+
 #endif // CSEQHEADER_H

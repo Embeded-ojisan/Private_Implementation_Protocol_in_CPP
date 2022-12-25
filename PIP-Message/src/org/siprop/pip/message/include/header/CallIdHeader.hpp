@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class CallIdHeader
+{
+public:
+
+private:
+};
+
 #endif // CALLIDHEADER_H

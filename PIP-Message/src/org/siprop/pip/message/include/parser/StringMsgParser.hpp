@@ -3,9 +3,18 @@
 
 #include "macro.hpp"
 
+#include "address/Address.hpp"
+#include "address/PipUri.hpp"
+#include "address/URI.hpp"
+
 #include "parser/ParseExceptionListener.hpp"
 
+#include "util/Host.hpp"
+
 #include "PIPMessage.hpp"
+
+#include <vector>
+#include <string>
 
 class StringMsgParser
 {
@@ -13,12 +22,32 @@ public:
     StringMsgParser() {};
     StringMsgParser(ParseExceptionListener);
 
-    void setParseExceptionListener(ParseExceptionListener);
+    void                setParseExceptionListener(ParseExceptionListener);
+
+    PIPMessage*         parsePIPMessage(std::vector<char>);
+    PIPMessage*         parsePIPMessage(std::string);
+
+    Address             parseAddress(std::string);
+    PipUri              parsePIPUrl(std::string);
+    URI                 parseUrl(std::string);
+
+    Host                parseHost(std::string);
+    TelephoneNumber     parseTelephoneNumber(std::string);
+    PIPHeader           parsePIPHeader(std::string);
+    RequestLine         parsePIPRequestLine(std::string);
+    StatusLine          parsePIPStatusLine(std::string);
+
 private:
     bool readBody;
     ParseExceptionListener parseExceptionListener;
     std::string rawStringMessage;
-    PIPMessage parsePIPMessage(std::vector<char>);
+
+    std::string trimEndOfLine(std::string);
+
+    PIPMessage* processFirstLine(std::string);
+
+    void processHeader(std::string, PIPMessage message);
+
 };
 
 #endif // STRINGMSGPARSR_H

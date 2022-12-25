@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class FromHeader
+{
+public:
+
+private:
+};
+
 #endif // FROMHEADER_H

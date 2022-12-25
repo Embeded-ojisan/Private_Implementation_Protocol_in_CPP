@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class ToHeader
+{
+public:
+
+private:
+};
+
 #endif // TOHEADER_H

@@ -1,5 +1,6 @@
 #include "parser/StringMsgParser.hpp"
 
+PIPMessage* parsePIPMessage(std::vector<char>);
 
 StringMsgParser::StringMsgParser(ParseExceptionListener exhandler)
     : StringMsgParser()
@@ -7,7 +8,13 @@ StringMsgParser::StringMsgParser(ParseExceptionListener exhandler)
     setParseExceptionListener(exhandler);
 }
 
-void setParseExceptionListener(ParseExceptionListener pexhandler)
+void StringMsgParser::setParseExceptionListener(ParseExceptionListener pexhandler)
 {
     this->parseExceptionListener = pexhandler;
+}
+
+PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> message)
+{
+    PIPMessage pipMessage;
+    return &pipMessage;
 }

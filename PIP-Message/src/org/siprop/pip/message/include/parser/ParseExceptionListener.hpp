@@ -8,6 +8,7 @@
 class ParseExceptionListener
 {
 public:
+    virtual ~ParseExceptionListener() {};
     virtual void handleException(
         ParserException ex
         ,PIPMessage* pipMessage
