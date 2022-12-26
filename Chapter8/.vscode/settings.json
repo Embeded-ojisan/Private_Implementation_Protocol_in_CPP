@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/mnt/c/Users/syama/Desktop/wsl-desktop/Private_Implementation_Protocol_in_CPP/Chapter8",
+            "binaryPath": "/mnt/c/Users/syama/Desktop/wsl-desktop/Private_Implementation_Protocol_in_CPP/Chapter8/sample_ParserTest.exe",
+            "binaryArgs": []
+        }
+    ]
+}

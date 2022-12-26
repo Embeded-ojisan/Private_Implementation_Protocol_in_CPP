@@ -57,6 +57,8 @@ int main(int argc, char *argv[])
     ParserTest Parser;
     PIPMessage *pipMessage;
 
+    argv[1] = "a.txt";
+
     try
     {
         if(argc < 1)

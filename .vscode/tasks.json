@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make sample_ParserTest",
+            "type": "shell",
+            "command": "make sample_ParserTest",
+            "args": [
+                "test",
+                "path=${relativeFile}"
+            ],
+            "presentation": {
+                "panel": "dedicated",
+                "clear": true,
+                "focus": true
+            }
+        }
+    ]
+}

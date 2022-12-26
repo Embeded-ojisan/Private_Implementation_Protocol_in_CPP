@@ -8,7 +8,7 @@
 # コンパイラ
 CC  = g++
 # コンパイルオプション
-CFLAGS = -std=c++17
+CFLAGS = -std=c++17 -g
 
 # サンプルソースのディレクトリパス
 SAMPLE	= .
@@ -28,7 +28,7 @@ BUILD	= .
 # インクルードファイルのあるディレクトリパス
 INCDIR  = $(PARSERDIR)/src/org/siprop/pip/message/include
 
-sample%:
+sample_ParserTest:
 	rm -f $@.exe
 #	$(eval SRCS := $(addprefix $(SAMPLE)/,$@.cpp))
 #	$(eval OBJS := $(SRCS:.cpp=.o))
