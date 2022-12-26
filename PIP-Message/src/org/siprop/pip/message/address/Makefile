@@ -1,3 +1,7 @@
+# 高速化のため
+# https://hangstuck.com/gmake-optimize-suffixes/
+ .SUFFIXES:
+
 # コンパイラ
 CC  = g++
 

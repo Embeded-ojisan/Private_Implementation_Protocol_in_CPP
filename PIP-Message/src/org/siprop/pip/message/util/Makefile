@@ -12,7 +12,7 @@ CFLAGS = -std=c++17
 SRCS = *.cpp
 
 # フォルダー名
-FOLDER = header
+FOLDER = util
 
 # インクルードファイルのあるディレクトリパス
 INCDIR  = $(subst $(FOLDER),include,$(shell pwd))
@@ -28,110 +28,90 @@ BUILDDIR = $(subst $(SRCDIR),build/$(SRCDIR),$(shell pwd))
 	@echo  "\n"
 	@echo  "\n"
 	
-	$(eval SRCS := AddressParametersHeader)
-	$(eval OBJS := AddressParametersHeader)
+	$(eval SRCS := Debug)
+	$(eval OBJS := Debug)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := GenericObject)
+	$(eval OBJS := GenericObject)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := GenericObjectList)
+	$(eval OBJS := GenericObjectList)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := HeaderIterator)
+	$(eval OBJS := HeaderIterator)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := Host)
+	$(eval OBJS := Host)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := HostNameParser)
+	$(eval OBJS := HostNameParser)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := HostPort)
+	$(eval OBJS := HostPort)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := InternalErrorHandler)
+	$(eval OBJS := InternalErrorHandler)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval OBJS := InvalidArgumentException)
+	$(eval SRCS := InvalidArgumentException)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := LexerCore)
+	$(eval OBJS := LexerCore)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := ListMap)
+	$(eval OBJS := ListMap)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := Match)
+	$(eval OBJS := Match)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := NameValue)
+	$(eval OBJS := NameValue)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+	
+	$(eval SRCS := NameValueList)
+	$(eval OBJS := NameValueList)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
 
-	$(eval SRCS := AllowHeader)
-	$(eval OBJS := AllowHeader)
+	$(eval SRCS := ParserCore)
+	$(eval OBJS := ParserCore)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := CallIdentifier)
-	$(eval OBJS := CallIdentifier)
+	
+	$(eval SRCS := PIPConstants)
+	$(eval OBJS := PIPConstants)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ContactHeader)
-	$(eval OBJS := ContactHeader)
+	
+	$(eval SRCS := PIPDuplicateHeaderException)
+	$(eval OBJS := PIPDuplicateHeaderException)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ContactList)
-	$(eval OBJS := ContactList)
+	
+	$(eval SRCS := PipException)
+	$(eval OBJS := PipException)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ContentLengthHeader)
-	$(eval OBJS := ContentLengthHeader)
+	
+	$(eval SRCS := Separators)
+	$(eval OBJS := Separators)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ContentTypeHeader)
-	$(eval OBJS := ContentTypeHeader)
+	
+	$(eval SRCS := StringTokenizer)
+	$(eval OBJS := StringTokenizer)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := CSeqHeader)
-	$(eval OBJS := CSeqHeader)
+	
+	$(eval SRCS := Token)
+	$(eval OBJS := Token)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ExtensionHeader)
-	$(eval OBJS := ExtensionHeader)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ExtensionHeaderList)
-	$(eval OBJS := ExtensionHeaderList)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := FromHeader)
-	$(eval OBJS := FromHeader)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := HeaderAddress)
-	$(eval OBJS := HeaderAddress)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := HeaderFactory)
-	$(eval OBJS := HeaderFactory)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := Indentation)
-	$(eval OBJS := Indentation)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := MediaRange)
-	$(eval OBJS := MediaRange)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := NameMap)
-	$(eval OBJS := NameMap)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ParameterNames)
-	$(eval OBJS := ParameterNames)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := Parameters)
-	$(eval OBJS := Parameters)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ParametersHeader)
-	$(eval OBJS := ParametersHeader)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := PIPHeader)
-	$(eval OBJS := PIPHeader)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := PIPHeaderList)
-	$(eval OBJS := PIPHeaderList)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := PIPHeaderNames)
-	$(eval OBJS := PIPHeaderNames)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := PIPObject)
-	$(eval OBJS := PIPObject)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := Protocol)
-	$(eval OBJS := Protocol)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := RequestLine)
-	$(eval OBJS := RequestLine)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := StatusLine)
-	$(eval OBJS := StatusLine)
-	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
-
-	$(eval SRCS := ToHeader)
-	$(eval OBJS := ToHeader)
+	
+	$(eval SRCS := Utils)
+	$(eval OBJS := Utils)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o

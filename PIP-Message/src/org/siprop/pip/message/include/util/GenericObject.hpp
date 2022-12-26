@@ -46,13 +46,15 @@ private:
 
 	std::string getIndentation();
 
+    void sprint(Object);
+
     void sprint(std::string);
 
 public:
     void setMatcher(Match matchExpression);
     
     Match getMatcher();
-
+    
     void sprint(int);
 };
 

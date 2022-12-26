@@ -1,8 +1,2 @@
-#include "util/Match.hpp"
+#include "Util.hpp"
 
-
-class Match
-{
-public:
-    virtual bool match(std::string searchString) = 0;
-}

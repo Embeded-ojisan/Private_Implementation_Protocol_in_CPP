@@ -1,19 +1,18 @@
 #include "macro.hpp"
 
-#include "PIPMessage.hpp"
-#include "PIPRequest.hpp"
-#include "PIPResponse.hpp"
-
 #include "Address.hpp"
 #include "Header.hpp"
 #include "Parser.hpp"
 #include "Util.hpp"
 
-#include <string>
+#include "MessageFactory.hpp"
+#include "MessageObject.hpp"
+#include "PIPMessage.hpp"
+#include "PIPRequest.hpp"
+#include "PIPResponse.hpp"
+
 #include <fstream>
 #include <iostream>
-#include <cstddef>
-#include <cstring>
 #include <vector>
 
 using namespace std::literals;
@@ -75,7 +74,7 @@ int main(int argc, char *argv[])
         PIPMessage *pipMessage;
         StringMsgParser parser;
         
-        pipMessage = parser.parsePIPMessage(message);
+//        pipMessage = parser.parsePIPMessage(message);
         std::cout
             << "メッセージパース成功："
             << std::endl;

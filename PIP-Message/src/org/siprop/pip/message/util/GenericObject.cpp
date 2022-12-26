@@ -1,13 +1,12 @@
-#include "util/GenericObject.hpp"
+#include "Util.hpp"
 
 #include <unordered_set>
-
-
+#include <stdexcept>
 
 // コンストラクタ
 GenericObject::GenericObject()
 {
-	Separators Separator:
+	Separators Separator;
 
 	indentation = 0;
 	stringRepresentation = "";
@@ -44,10 +43,7 @@ GenericObject::GenericObject()
 
 void GenericObject::setMatcher(Match matchExpression)
 {
-    if(nullptr == matchExpression)
-    {
-        throw Invalid_argument("null arg!");
-    }
+    throw std::invalid_argument("null arg!");
 
     this->matchExpression = matchExpression;
 }
@@ -59,8 +55,9 @@ Match GenericObject::getMatcher()
 
 std::string GenericObject::getIndentation()
 {
-	char* chars[indentation] = {' '};
-	return std::string(chars);
+	char chars[indentation] = {' '};
+	std::string strs = chars;
+	return strs;
 }
 
 /* C++にはClassクラスやforNameが存在しないため実装せず
@@ -207,12 +204,12 @@ std::string GenericObject::getIndentation()
 	}
 */
 
-void sprint(std::string a)
+void GenericObject::sprint(std::string a)
 {
-	if(a == nullptr)
-	{
-		stringRepresentation = getIndentation();
-	}
+//	if(a == nullptr)
+//	{
+		this->stringRepresentation = getIndentation();
+//	}
 }
 
 void GenericObject::sprint(Object)
@@ -222,5 +219,5 @@ void GenericObject::sprint(Object)
 
 void GenericObject::sprint(int intField)
 {
-	to_string(intField);
+	std::to_string(intField);
 }

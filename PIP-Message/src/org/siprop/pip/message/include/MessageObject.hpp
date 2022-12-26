@@ -1,7 +1,7 @@
 #ifndef MESSAGEOBJECT_H
 #define MESSAGEOBJECT_H
 
-#include "util/GenericObject.hpp"
+#include "Util.hpp"
 
 class MessageObject : GenericObject
 {
