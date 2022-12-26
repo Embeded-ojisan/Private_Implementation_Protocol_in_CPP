@@ -3,4 +3,11 @@
 
 #include "macro.hpp"
 
+class PIPRequest: public PIPMessage
+{
+public:
+
+private:
+};
+
 #endif // PIPREQUESR_H

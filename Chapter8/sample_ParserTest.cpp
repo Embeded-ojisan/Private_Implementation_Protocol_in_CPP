@@ -44,11 +44,18 @@ std::vector<char> ParserTest::loadText(std::string fileName)
     return buf;
 }
 
+PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> message)
+{
+    PIPMessage *pipMessage;
+    return pipMessage;
+}
+
 int main(int argc, char *argv[])
 {
 
     std::vector<char> message;
     ParserTest Parser;
+    PIPMessage *pipMessage;
 
     try
     {
@@ -71,10 +78,9 @@ int main(int argc, char *argv[])
     
     try
     {
-        PIPMessage *pipMessage;
         StringMsgParser *parser;
         
-//        pipMessage = parser->parsePIPMessage(message);
+        pipMessage = parser->parsePIPMessage(message);
         std::cout
             << "メッセージパース成功："
             << std::endl;
@@ -82,5 +88,14 @@ int main(int argc, char *argv[])
     catch(const ParserException& ex)
     {
         std::cerr << ex.what() << '\n';
+    }
+
+    if(
+        instanceof<PIPRequest>(*pipMessage)
+    )
+    {
+        std::cout
+            << "ERR: PIPレスポンスではありません"
+            << std::endl;
     }
 }
