@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
     try
     {
         PIPMessage *pipMessage;
-        StringMsgParser parser;
+        StringMsgParser *parser;
         
-//        pipMessage = parser.parsePIPMessage(message);
+//        pipMessage = parser->parsePIPMessage(message);
         std::cout
             << "メッセージパース成功："
             << std::endl;
