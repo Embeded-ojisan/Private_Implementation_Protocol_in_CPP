@@ -1,4 +1,5 @@
 #include "macro.hpp"
+#include "parser/StringMsgParser.hpp"
 
 #include "Address.hpp"
 #include "Header.hpp"
@@ -92,6 +93,7 @@ int main(int argc, char *argv[])
         std::cerr << ex.what() << '\n';
     }
 
+/*
     if(
         instanceof<PIPRequest>(*pipMessage)
     )
@@ -99,5 +101,19 @@ int main(int argc, char *argv[])
         std::cout
             << "ERR: PIPレスポンスではありません"
             << std::endl;
+    }
+*/
+    try
+    {
+        PIPResponse* pipResponse = (PIPResponse *)pipMessage;
+        pipResponse->setStatusCode(400);
+        std::cout
+            << "書き換え成功："
+            << pipResponse->toString()
+            << std::endl;
+    }
+    catch(ParserException ex)
+    {
+        ;
     }
 }

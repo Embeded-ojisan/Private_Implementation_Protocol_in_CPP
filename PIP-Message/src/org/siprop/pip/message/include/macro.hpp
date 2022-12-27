@@ -30,11 +30,12 @@ using ParserException = std::exception;
 // 参考は以下
 // https://moewe-net.com/c-cpp/cpp-interface
     // Cloneable
+    template <typename T>
     class Cloneable
     {
     public:
         virtual ~Cloneable() {};
-        virtual void clone() = 0;
+        virtual T clone() = 0;
     };
 
     // Serializable

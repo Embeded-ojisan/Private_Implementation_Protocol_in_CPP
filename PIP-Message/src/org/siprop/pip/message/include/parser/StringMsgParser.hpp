@@ -3,6 +3,8 @@
 
 #include "macro.hpp"
 
+#include "parser/ParseExceptionListener.hpp"
+
 #include "Address.hpp"
 #include "Header.hpp"
 #include "Parser.hpp"
@@ -16,10 +18,10 @@
 class StringMsgParser
 {
 public:
-    StringMsgParser() {};
-    StringMsgParser(ParseExceptionListener);
+    StringMsgParser(void);
+    StringMsgParser(ParseExceptionListener*);
 
-    void                setParseExceptionListener(ParseExceptionListener);
+    void                setParseExceptionListener(ParseExceptionListener*);
 
     PIPMessage*         parsePIPMessage(std::vector<char>);
     PIPMessage*         parsePIPMessage(std::string);

@@ -11,7 +11,7 @@
 #include <vector>
 
 
-class PIPMessage : public Cloneable , public MessageObject
+class PIPMessage : public Cloneable<Object> , public MessageObject
 {
 public:
     virtual void checkHeaders();

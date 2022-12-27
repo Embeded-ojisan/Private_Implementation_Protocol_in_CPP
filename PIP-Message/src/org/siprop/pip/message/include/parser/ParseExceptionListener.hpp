@@ -3,12 +3,15 @@
 
 #include "macro.hpp"
 
+#include "Parser.hpp"
+
 #include "PIPMessage.hpp"
 
 class ParseExceptionListener
 {
 public:
     virtual ~ParseExceptionListener() {};
+
     virtual void handleException(
         ParserException ex
         ,PIPMessage* pipMessage
@@ -16,6 +19,7 @@ public:
         ,std::string headerText
         ,std::string messageText
     );
+private:
 };
 
 #endif // PARSEREXCEPTIONLISTENER_H

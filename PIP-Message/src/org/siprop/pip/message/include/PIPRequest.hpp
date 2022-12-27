@@ -3,6 +3,8 @@
 
 #include "macro.hpp"
 
+#include "PIPMessage.hpp"
+
 class PIPRequest: public PIPMessage
 {
 public:
