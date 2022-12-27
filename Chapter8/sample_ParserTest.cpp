@@ -15,6 +15,9 @@
 #include <fstream>
 #include <iostream>
 #include <vector>
+#include <string>
+#include <sstream>
+#include <iterator>
 
 using namespace std::literals;
 
@@ -57,15 +60,11 @@ PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
 
     int i = 0;
 
-    try
-    {
+    try{
         while(msgBuffer.at(i) < 0x20)
-        {
             i++;
-        }
     }
-    catch(std::out_of_range& ex)
-    {
+    catch(std::out_of_range& ex){
         return nullptr;
     }
 
@@ -74,11 +73,46 @@ PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
     bool isFirstLine = true;
     PIPMessage *message = nullptr;
     
-    do
-    {
+    do{
         int lineStart = i;
-    }
-    while (currentLine.size() > 0);
+
+        try
+        {
+            while(
+                msgBuffer.at(i) != '\r'
+                && msgBuffer.at(i) != '\n'
+            )
+                i++;
+        }
+        catch(std::out_of_range& ex){
+            break;
+        }
+        int lineLength = i - lineStart;
+
+        try
+        {
+            std::string str;
+            {
+                std::stringstream ss;
+                for(auto it = msgBuffer.begin(); it != msgBuffer.end(); it++) {
+                    if(it != msgBuffer.begin())
+                    {
+                        ss << ", ";
+                    }
+                    ss << *it;
+                }
+
+                str = ss.str();
+            }
+            currentLine = str;
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
+        
+        
+    }while (currentLine.size() > 0);
 
     return message;
 }
