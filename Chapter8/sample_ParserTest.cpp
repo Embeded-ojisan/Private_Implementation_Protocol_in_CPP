@@ -48,6 +48,46 @@ std::vector<char> ParserTest::loadText(std::string fileName)
     return buf;
 }
 
+std::string ToString(std::vector<char> vec)
+{
+    std::stringstream ss;
+    for(auto it = vec.begin(); it != vec.end(); it++) {
+        if(it != vec.begin())
+        {
+            ss << ", ";
+        }
+        ss << *it;
+    }
+
+    return ss.str();
+}
+
+// 名前解決できないため、一旦、オーバーライド
+std::string StringMsgParser::trimEndOfLine(std::string line)
+{
+    if(line.empty() == true)
+    {
+        return line;
+    }
+
+    int i = line.size() - 1;
+    while(i >= 0 && line.at(i) <= 0x20)
+        i--;
+
+    if(i == line.size() - 1)
+    {
+        return line;
+    }
+
+    if(i == -1)
+    {
+        return "";
+    }
+
+    return line.substr(0, i+1);
+}
+
+// 名前解決できないため、一旦、オーバーライド
 PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
 {
     if(
@@ -89,29 +129,10 @@ PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
         }
         int lineLength = i - lineStart;
 
-        try
-        {
-            std::string str;
-            {
-                std::stringstream ss;
-                for(auto it = msgBuffer.begin(); it != msgBuffer.end(); it++) {
-                    if(it != msgBuffer.begin())
-                    {
-                        ss << ", ";
-                    }
-                    ss << *it;
-                }
+        currentLine = ToString(msgBuffer);
 
-                str = ss.str();
-            }
-            currentLine = str;
-        }
-        catch(const std::exception& e)
-        {
-            std::cerr << e.what() << '\n';
-        }
-        
-        
+        currentLine = this->trimEndOfLine(currentLine);
+
     }while (currentLine.size() > 0);
 
     return message;
