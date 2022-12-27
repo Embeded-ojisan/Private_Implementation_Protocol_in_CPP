@@ -45,10 +45,42 @@ std::vector<char> ParserTest::loadText(std::string fileName)
     return buf;
 }
 
-PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> message)
+PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
 {
-    PIPMessage *pipMessage;
-    return pipMessage;
+    if(
+        msgBuffer.empty() == false
+        || msgBuffer.size() == 0
+    )
+    {
+        return nullptr;
+    }
+
+    int i = 0;
+
+    try
+    {
+        while(msgBuffer.at(i) < 0x20)
+        {
+            i++;
+        }
+    }
+    catch(std::out_of_range& ex)
+    {
+        return nullptr;
+    }
+
+    std::string currentLine = nullptr;
+    std::string currentHeader = nullptr;
+    bool isFirstLine = true;
+    PIPMessage *message = nullptr;
+    
+    do
+    {
+        int lineStart = i;
+    }
+    while (currentLine.size() > 0);
+
+    return message;
 }
 
 int main(int argc, char *argv[])
