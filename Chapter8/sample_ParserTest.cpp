@@ -90,6 +90,17 @@ std::string StringMsgParser::trimEndOfLine(std::string line)
     return line.substr(0, i+1);
 }
 
+void StringMsgParser::handleException(
+		ParseException ex,
+		PIPMessage pipMessage,
+		Class headerClass,
+		String headerText,
+		String messageText
+)
+{
+		throws ParseException;
+}
+
 // 名前解決できないため、一旦、オーバーライド
 void StringMsgParser::processHeader(
     std::string header, PIPMessage* message
@@ -105,8 +116,22 @@ void StringMsgParser::processHeader(
     }
     catch(ParseException e)
     {
+        this
+            ->parseExceptionListener
+            ->handleException(
+                e, message, nullptr, header, this->rawStringMessage
+            );
+    }
+
+    try
+    {
+        PIPHeader* pipHeader = headerParser->parse();
+    }
+    catch(const std::exception& e)
+    {
         std::cerr << e.what() << '\n';
     }
+    
     
 }
 
