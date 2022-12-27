@@ -3,4 +3,13 @@
 
 #include "macro.hpp"
 
+#include "Parser.hpp"
+
+class HeaderParser
+{
+public:
+
+private:
+};
+
 #endif // HEADERPARSER_H

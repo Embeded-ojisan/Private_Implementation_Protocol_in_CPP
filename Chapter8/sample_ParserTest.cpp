@@ -1,5 +1,8 @@
 #include "macro.hpp"
+
 #include "parser/StringMsgParser.hpp"
+#include "parser/HeaderParser.hpp"
+#include "parser/ParserFactory.hpp"
 
 #include "Address.hpp"
 #include "Header.hpp"
@@ -88,6 +91,26 @@ std::string StringMsgParser::trimEndOfLine(std::string line)
 }
 
 // 名前解決できないため、一旦、オーバーライド
+void StringMsgParser::processHeader(
+    std::string header, PIPMessage* message
+)
+{
+    if(true == header.empty || 0 == header.size())
+        return ;
+    
+    HeaderParser headerParser = nullptr;
+    try
+    {
+        headerParser = ParserFactory.createParser(header + "\n");
+    }
+    catch(ParseException e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+}
+
+// 名前解決できないため、一旦、オーバーライド
 PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
 {
     if(
@@ -132,6 +155,18 @@ PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> msgBuffer)
         currentLine = ToString(msgBuffer);
 
         currentLine = this->trimEndOfLine(currentLine);
+
+        if(currentLine.size() == 0)
+        {
+            if(false == currentHeader.empty())
+            {
+                this->processHeader(currentHeader, message);
+            }
+        }
+        else
+        {
+            ;
+        }
 
     }while (currentLine.size() > 0);
 
