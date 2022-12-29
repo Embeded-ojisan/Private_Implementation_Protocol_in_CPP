@@ -4,6 +4,7 @@
 #include "macro.hpp"
 
 #include <string>
+#include <string_view>
 
 class StatusLine : public PIPObject
 {
@@ -39,7 +40,14 @@ bool StatusLine::match(Object matchObj)
 
 std::string StatusLine::encode(void)
 {
-    std::string encoding = PIPConstants::PIP_VERSION_STRING + SP + this->statusCode;
+    std::string encoding = PIPConstants::PIP_VERSION_STRING + Separators::SP + this->statusCode;
+    if(!(this->reasonPhrase.empty()))
+    {
+        encoding += Separators::SP + this->reasonPhrase;
+    }
+
+    encoding += Separators::NEWLINE;
+    return encoding;
 }
 
 #endif // STATUSLINE_H
