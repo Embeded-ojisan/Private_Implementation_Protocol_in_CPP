@@ -7,6 +7,7 @@
 #include <vector>
 #include <string>
 
+/*
 StringMsgParser::StringMsgParser(ParseExceptionListener *exhandler)
     : StringMsgParser()
 {
@@ -23,3 +24,4 @@ PIPMessage* StringMsgParser::parsePIPMessage(std::vector<char> message)
     PIPMessage *pipMessage;
     return pipMessage;
 }
+*/

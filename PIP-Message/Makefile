@@ -6,7 +6,7 @@
 CC  = g++
 
 # コンパイルオプション
-CFLAGS = -std=c++17
+CFLAGS = -std=c++2a -g
 
 # ソースコード
 SRCS = *.cpp
@@ -27,7 +27,7 @@ TMP = $(BUILDDIR)/src/org/siprop/pip/message
 
 %:
 	$(MAKE) -j8 -C  ../PIP-Message/src/org/siprop/pip/message $@
-	ar -r $(BUILDDIR)/PIP-Message.o $(TMP)/MessageFactory.o $(TMP)/MessageObject.o $(TMP)/PIPMessage.o $(TMP)/PIPRequest.o $(TMP)/PIPResponse.o $(TMP)/Address.o $(TMP)/Header.o $(TMP)/Parser.o $(TMP)/Util.o
+	ar -r $(BUILDDIR)/PIP-Message.o $(TMP)/MessageFactory.o $(TMP)/MessageObject.o $(TMP)/PIPMessage.o $(TMP)/PIPRequest.o $(TMP)/PIPResponse.o $(TMP)/macro.o $(TMP)/Address.o $(TMP)/Header.o $(TMP)/Parser.o $(TMP)/Util.o
 
 PIP-Message:
-	ar -r $(BUILDDIR)/PIP-Message.o $(TMP)/MessageFactory.o $(TMP)/MessageObject.o $(TMP)/PIPMessage.o $(TMP)/PIPRequest.o $(TMP)/PIPResponse.o $(TMP)/Address.o $(TMP)/Header.o $(TMP)/Parser.o $(TMP)/Util.o
+	ar -r $(BUILDDIR)/PIP-Message.o $(TMP)/MessageFactory.o $(TMP)/MessageObject.o $(TMP)/PIPMessage.o $(TMP)/PIPRequest.o $(TMP)/PIPResponse.o $(TMP)/macro.o $(TMP)/Address.o $(TMP)/Header.o $(TMP)/Parser.o $(TMP)/Util.o

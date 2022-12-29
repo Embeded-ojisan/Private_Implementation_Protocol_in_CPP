@@ -15,24 +15,7 @@ public:
     HeaderParser createParser(std::string);
 
 private:
-    static std::unordered_map<std::string>  parserTable;
-    static Class                            constructorArgs;
-    {
-    private:
-        /* data */
-    public:
-        ParserFactory(/* args */);
-        ~ParserFactory();
-    };
-    
-    ParserFactory::ParserFactory(/* args */)
-    {
-    }
-    
-    ParserFactory::~ParserFactory()
-    {
-    }
-    
+//    static std::unordered_map<std::string>  parserTable;
 };
 
 #endif // #define PARSERFACTORY_H

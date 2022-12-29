@@ -6,7 +6,7 @@
 CC  = g++
 
 # コンパイルオプション
-CFLAGS = -std=c++17
+CFLAGS = -std=c++2a -g
 
 # ソースコード
 SRCS = *.cpp

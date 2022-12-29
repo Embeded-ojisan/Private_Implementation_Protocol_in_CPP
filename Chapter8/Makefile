@@ -8,7 +8,7 @@
 # コンパイラ
 CC  = g++
 # コンパイルオプション
-CFLAGS = -std=c++17 -g
+CFLAGS = -std=c++2a -g
 
 # サンプルソースのディレクトリパス
 SAMPLE	= .

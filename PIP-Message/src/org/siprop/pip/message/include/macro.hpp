@@ -3,6 +3,9 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+#include <sstream>
+#include <iterator>
 
 // JavaのObject型を模擬
 using Object = void*;
@@ -12,6 +15,8 @@ using Class = void*;
 
 // JavaのParseException型を模擬
 using ParserException = std::exception;
+
+extern std::string ToString(std::vector<char> vec);
 
 // JavaのInstanceofを模擬
     template <typename Of, typename What>

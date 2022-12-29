@@ -6,7 +6,7 @@
 CC  = g++
 
 # コンパイルオプション
-CFLAGS = -std=c++17
+CFLAGS = -std=c++2a -g
 
 # ソースコード
 SRCS = *.cpp
@@ -62,6 +62,10 @@ BUILDDIR = $(subst $(SRCDIR),build/$(SRCDIR),$(shell pwd))
 	$(eval OBJS := PIPResponse)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
 
+	$(eval SRCS := macro)
+	$(eval OBJS := macro)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+
 	@echo  "\n"
 	@echo  "\n"
 	@echo  "\n"
@@ -105,6 +109,10 @@ Src:
 
 	$(eval SRCS := PIPResponse)
 	$(eval OBJS := PIPResponse)
+	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
+
+	$(eval SRCS := macro)
+	$(eval OBJS := macro)
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $(SRCS).cpp -o $(BUILDDIR)/$(OBJS).o
 
 	@echo  "\n"

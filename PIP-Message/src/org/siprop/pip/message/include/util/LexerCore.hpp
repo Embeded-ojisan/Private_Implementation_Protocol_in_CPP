@@ -3,4 +3,10 @@
 
 #include "macro.hpp"
 
+class LexerCore
+{
+public:
+private:
+};
+
 #endif // LEXERCORE_H
