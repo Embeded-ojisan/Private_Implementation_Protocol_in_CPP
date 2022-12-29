@@ -100,7 +100,6 @@ int main(int argc, char *argv[])
         std::cerr << ex.what() << '\n';
     }
 
-/*
     if(
         instanceof<PIPRequest>(*pipMessage)
     )
@@ -109,8 +108,7 @@ int main(int argc, char *argv[])
             << "ERR: PIPレスポンスではありません"
             << std::endl;
     }
-*/
-/*
+
     try
     {
         PIPResponse* pipResponse = (PIPResponse *)pipMessage;
@@ -124,5 +122,5 @@ int main(int argc, char *argv[])
     {
         ;
     }
-*/
+
 }

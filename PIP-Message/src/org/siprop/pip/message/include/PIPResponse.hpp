@@ -16,18 +16,18 @@
 class PIPResponse: public PIPMessage
 {
 public:
-    static const int    RINGING                                 = 100;
-    static const int    OK                                      = 200;
-    static const int    BAD_REQUEST                             = 400;
-    static const int    FORBIDDEN                               = 403;
-    static const int    METHOD_NOT_ALLOWED                      = 405;
-    static const int    REQUEST_TIMEOUT                         = 408;
-    static const int    UNSUPPORTED_MEDIA_TYPE                  = 415;
-    static const int    UNSUPPORTED_URI_SCHEME                  = 416;
-    static const int    CALL_OR_TRANSACTION_DOES_NOT_EXIST      = 481;
-    static const int    BUSY_HERE                               = 486;
-    static const int    REQUEST_TERMINATED                      = 487;
-    static const int    NOT_ACCEPTABLE_HERE                     = 488;
+    static const int RINGING                                 = 100;
+    static const int OK                                      = 200;
+    static const int BAD_REQUEST                             = 400;
+    static const int FORBIDDEN                               = 403;
+    static const int METHOD_NOT_ALLOWED                      = 405;
+    static const int REQUEST_TIMEOUT                         = 408;
+    static const int UNSUPPORTED_MEDIA_TYPE                  = 415;
+    static const int UNSUPPORTED_URI_SCHEME                  = 416;
+    static const int CALL_OR_TRANSACTION_DOES_NOT_EXIST      = 481;
+    static const int BUSY_HERE                               = 486;
+    static const int REQUEST_TERMINATED                      = 487;
+    static const int NOT_ACCEPTABLE_HERE                     = 488;
 
     PIPResponse();
 
@@ -68,7 +68,17 @@ public:
     std::vector<char>   encodeAsBytes(void);
 
 private:
-    StatusLine          statusLine;
+    StatusLine statusLine;
 };
+
+void PIPResponse::setStatusCode(int statusCode)
+{
+    if(statusCode < 100 || 800 < statusCode)
+    {
+        throw ParseException{"bad status code"};
+    }
+
+    if(this->statusLine == nullptr)
+}
 
 #endif // PIPRESPONSE_H
