@@ -6,7 +6,7 @@
 CC  = g++
 
 # コンパイルオプション
-CFLAGS = -std=c++2a -g
+CFLAGS = -std=c++2a -g3 -Wall -Wextra -Wconversion
 
 # ソースコード
 SRCS = *.cpp
