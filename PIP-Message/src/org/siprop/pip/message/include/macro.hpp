@@ -32,16 +32,18 @@ extern std::string ToString(std::vector<char> vec);
 
 // JavaのInstanceofを模擬
     template <typename Of, typename What>
+    inline bool instanceof(const What w)
+    {
+        return dynamic_cast<const Of>(w) != 0;
+    }
+
+/*
+    template <typename Of, typename What>
     inline bool instanceof(const What &w)
     {
         return dynamic_cast<const Of*>(&w) != 0;
     }
-
-    template <typename Of, typename What>
-    inline bool instanceof(const What w)
-    {
-        return dynamic_cast<const Of*>(w) != 0;
-    }
+*/
 
 // Javaのインターフェースを模擬
 // 参考は以下
