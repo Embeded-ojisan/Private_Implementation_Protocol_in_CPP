@@ -3,4 +3,10 @@
 
 #include "macro.hpp"
 
+class ParameterNames
+{
+public:
+private:
+};
+
 #endif // PARAMETERNAMES_H

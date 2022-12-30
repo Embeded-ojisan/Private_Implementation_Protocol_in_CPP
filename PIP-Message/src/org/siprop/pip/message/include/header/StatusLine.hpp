@@ -3,10 +3,12 @@
 
 #include "macro.hpp"
 
+#include "util/PIPConstants.hpp"
+
 #include <string>
 #include <string_view>
 
-class StatusLine : public PIPObject
+class StatusLine : public PIPObject, public Object
 {
 public:
     bool        match(Object);
@@ -30,14 +32,9 @@ bool StatusLine::match(Object matchObj)
     if(instanceof<StatusLine, Object>(matchObj))
         return false;
 
-    StatusLine s1 = (StatusLine) matchObj;
+    StatusLine* s1 = (StatusLine*)(&matchObj);
 
-    if(s1.matchExpression != nullptr)
-    {
-        return s1.matchExpression.match(this->encode());
-    }
-
-    if(s1.pipVersion != nullptr && s1.pipVersion.compare(pipVersion))
+    if(s1->pipVersion.compare(pipVersion))
     {
         return false;
     }

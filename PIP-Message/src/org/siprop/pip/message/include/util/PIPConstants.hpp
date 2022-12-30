@@ -10,14 +10,14 @@
 
 #include <string_view>
 
-class PIPConstants : public PIPHeaderNames, public ParameterNames, public ParameterNames
+class PIPConstants : public PIPHeaderNames, public ParameterNames
 {
 public:
-    static int                  DEFAULT_PORT                    = 5060;
-    static int                  DEFAULT_TLS_PORT                = 5061;
-    static std::string_view     BRANCH_MAGIC_COOKIE             = "z9hG4bK";
-    static std::string_view     BRANCH_MAGIC_COOKIE_LOWER_CASE  = "z9hg4bk";
-    static std::string_view     PIP_VERSION_STRING              = "PIP/1.0";
+    const static int                    DEFAULT_PORT                    = 5060;
+    const static int                    DEFAULT_TLS_PORT                = 5061;
+    static constexpr std::string_view   BRANCH_MAGIC_COOKIE             = "z9hG4bK";
+    static constexpr std::string_view   BRANCH_MAGIC_COOKIE_LOWER_CASE  = "z9hg4bk";
+    static constexpr std::string_view   PIP_VERSION_STRING              = "PIP/1.0";
 private:
 };
 

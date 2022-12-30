@@ -19,6 +19,8 @@ public:
     Match getMatcher();
     
     void sprint(int);
+    
+    static Match            matchExpression;
 
 private:
     static std::string      SEMICOLON;
@@ -48,7 +50,6 @@ private:
 
     static int              indentation;
     static std::string      stringRepresentation;
-    static Match            matchExpression;
 
 	std::string getIndentation();
 

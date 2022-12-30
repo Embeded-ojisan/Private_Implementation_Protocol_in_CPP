@@ -3,4 +3,10 @@
 
 #include "macro.hpp"
 
+class PIPHeaderNames
+{
+public:
+private:
+};
+
 #endif // PIPHEADERNAMES_H
