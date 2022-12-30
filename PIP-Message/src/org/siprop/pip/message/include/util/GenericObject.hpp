@@ -11,6 +11,15 @@
 
 class GenericObject
 {
+public:
+	GenericObject();
+
+    void setMatcher(Match matchExpression);
+    
+    Match getMatcher();
+    
+    void sprint(int);
+
 private:
     static std::string      SEMICOLON;
     static std::string      COLON;
@@ -41,21 +50,11 @@ private:
     static std::string      stringRepresentation;
     static Match            matchExpression;
 
-	// コンストラクタ
-	GenericObject();
-
 	std::string getIndentation();
 
     void sprint(Object);
 
     void sprint(std::string);
-
-public:
-    void setMatcher(Match matchExpression);
-    
-    Match getMatcher();
-    
-    void sprint(int);
 };
 
 #endif // GENERICOBJECT_H

@@ -8,13 +8,25 @@
 #include <iterator>
 
 // JavaのObject型を模擬
-using Object = void*;
+class Object
+{
+public:
+private:
+};
 
 // JavaのClass型を模擬
-using Class = void*;
+class Class
+{
+public:
+private:
+};
 
 // JavaのParseException型を模擬
-using ParserException = std::exception;
+class ParserException : std::exception
+{
+public:
+private:
+};
 
 extern std::string ToString(std::vector<char> vec);
 

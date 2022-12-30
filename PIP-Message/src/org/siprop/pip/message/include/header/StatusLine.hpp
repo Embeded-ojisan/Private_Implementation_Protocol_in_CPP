@@ -27,14 +27,19 @@ private:
 
 bool StatusLine::match(Object matchObj)
 {
-    if(instanceof<StatusLine>(&matchObj))
+    if(instanceof<StatusLine, Object>(matchObj))
         return false;
 
     StatusLine s1 = (StatusLine) matchObj;
 
     if(s1.matchExpression != nullptr)
     {
-        return s1->matchExpression.match(this->encode());
+        return s1.matchExpression.match(this->encode());
+    }
+
+    if(s1.pipVersion != nullptr && s1.pipVersion.compare(pipVersion))
+    {
+        return false;
     }
 }
 

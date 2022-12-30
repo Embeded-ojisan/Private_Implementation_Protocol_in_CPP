@@ -3,9 +3,11 @@
 
 #include "macro.hpp"
 
+#include "util/GenericObject.hpp"
+
 #include <string>
 
-class PIPObject : GenericObject
+class PIPObject : public GenericObject
 {
 public:
     PIPObject(void);
@@ -21,7 +23,7 @@ PIPObject::PIPObject(void)
 
 bool equals(Object object)
 {
-    ;
+    return false;
 }
 
 
