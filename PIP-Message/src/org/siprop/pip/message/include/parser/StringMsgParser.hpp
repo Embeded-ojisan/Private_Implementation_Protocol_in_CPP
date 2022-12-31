@@ -132,7 +132,7 @@ PIPMessage* StringMsgParser::parsePIPMessage(
         }
         int lineLength = i - lineStart;
 
-        currentLine = ToString(msgBuffer);
+        currentLine = VectoredCharToString(msgBuffer);
 
         currentLine = this->trimEndOfLine(currentLine);
 

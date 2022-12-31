@@ -42,13 +42,19 @@ bool StatusLine::match(Object matchObj)
 
 std::string StatusLine::encode(void)
 {
-    std::string encoding = PIPConstants::PIP_VERSION_STRING + Separators::SP + this->statusCode;
+    std::string PIP_VERSION_STRING  =   StringToStringView(PIPConstants::PIP_VERSION_STRING);
+    std::string SP                  =   StringToStringView(Separators::SP);
+    std::string NEWLINE             =   StringToStringView(Separators::NEWLINE);
+
+    std::string encoding
+        = PIP_VERSION_STRING + SP + std::to_string(this->statusCode);
+
     if(!(this->reasonPhrase.empty()))
     {
-        encoding += Separators::SP + this->reasonPhrase;
+        encoding += SP + this->reasonPhrase;
     }
 
-    encoding += Separators::NEWLINE;
+    encoding += NEWLINE;
     return encoding;
 }
 

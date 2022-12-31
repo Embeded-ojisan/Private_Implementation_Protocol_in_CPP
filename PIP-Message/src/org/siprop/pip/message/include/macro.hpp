@@ -2,6 +2,8 @@
 #define MACRO_H
 
 #include <string>
+#include <string_view>
+
 #include <iostream>
 #include <vector>
 #include <sstream>
@@ -28,7 +30,8 @@ public:
 private:
 };
 
-extern std::string ToString(std::vector<char> vec);
+extern std::string VectoredCharToString(std::vector<char> vec);
+extern std::string StringToStringView(std::string_view);
 
 // JavaのInstanceofを模擬
     template <typename Of, typename What>

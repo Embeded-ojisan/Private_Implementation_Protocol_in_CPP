@@ -1,14 +1,18 @@
 #include "macro.hpp"
 
 #include <string>
+#include <string_view>
+
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <iterator>
 
-std::string ToString(std::vector<char>);
+std::string VectoredCharToString(std::vector<char>);
 
-std::string ToString(
+std::string StringToStringView(std::string_vew);
+
+std::string VectoredCharToString(
     std::vector<char> vec
 )
 {
@@ -27,4 +31,13 @@ std::string ToString(
     }
 
     return ss.str();
+}
+
+std::string StringToStringView(std::string_vew view)
+{
+    return (
+        std::string(
+            view.data()
+        )
+    );
 }
